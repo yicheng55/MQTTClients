@@ -1,0 +1,1 @@
+/usr/bin/cc   -rdynamic CMakeFiles/paho_c_sub.dir/paho_c_sub.o CMakeFiles/paho_c_sub.dir/pubsub_opts.o  -o paho_c_sub  -lpaho-mqtt3as 

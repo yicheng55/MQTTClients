@@ -1,0 +1,1 @@
+/usr/bin/cc   -rdynamic CMakeFiles/MQTTAsync_subscribe.dir/MQTTAsync_subscribe.o  -o MQTTAsync_subscribe  -lpaho-mqtt3a 

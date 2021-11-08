@@ -1,0 +1,15 @@
+/home/pi/Prg/MQTTClients/paho.mqtt.c-master/src/samples/CMakeFiles/install.dir
+/home/pi/Prg/MQTTClients/paho.mqtt.c-master/src/samples/CMakeFiles/rebuild_cache.dir
+/home/pi/Prg/MQTTClients/paho.mqtt.c-master/src/samples/CMakeFiles/edit_cache.dir
+/home/pi/Prg/MQTTClients/paho.mqtt.c-master/src/samples/CMakeFiles/MQTTClient_publish_async.dir
+/home/pi/Prg/MQTTClients/paho.mqtt.c-master/src/samples/CMakeFiles/MQTTClient_publish.dir
+/home/pi/Prg/MQTTClients/paho.mqtt.c-master/src/samples/CMakeFiles/MQTTClient_subscribe.dir
+/home/pi/Prg/MQTTClients/paho.mqtt.c-master/src/samples/CMakeFiles/install/strip.dir
+/home/pi/Prg/MQTTClients/paho.mqtt.c-master/src/samples/CMakeFiles/paho_c_sub.dir
+/home/pi/Prg/MQTTClients/paho.mqtt.c-master/src/samples/CMakeFiles/paho_c_pub.dir
+/home/pi/Prg/MQTTClients/paho.mqtt.c-master/src/samples/CMakeFiles/list_install_components.dir
+/home/pi/Prg/MQTTClients/paho.mqtt.c-master/src/samples/CMakeFiles/paho_cs_pub.dir
+/home/pi/Prg/MQTTClients/paho.mqtt.c-master/src/samples/CMakeFiles/install/local.dir
+/home/pi/Prg/MQTTClients/paho.mqtt.c-master/src/samples/CMakeFiles/paho_cs_sub.dir
+/home/pi/Prg/MQTTClients/paho.mqtt.c-master/src/samples/CMakeFiles/MQTTAsync_publish.dir
+/home/pi/Prg/MQTTClients/paho.mqtt.c-master/src/samples/CMakeFiles/MQTTAsync_subscribe.dir

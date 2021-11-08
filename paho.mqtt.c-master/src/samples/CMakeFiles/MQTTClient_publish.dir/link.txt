@@ -1,0 +1,1 @@
+/usr/bin/cc   -rdynamic CMakeFiles/MQTTClient_publish.dir/MQTTClient_publish.o  -o MQTTClient_publish  -lpaho-mqtt3c 

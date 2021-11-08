@@ -8,6 +8,7 @@
 
 #define ADDRESS     "tcp://localhost:1883" //更改此处地址
 #define CLIENTID    "ExampleClientSub"     //更改此处客户端ID
+#define TOPIC1      "motion/test"                 //更改发送的话题
 #define TOPIC       "gtwang/test"                 //更改发送的话题
 #define PAYLOAD     "Hello, GetIoT.tech!"  //更改信息内容
 #define QOS         1
@@ -65,6 +66,14 @@ int main(int argc, char* argv[])
         printf("Failed to connect, return code %d\n", rc);
         rc = EXIT_FAILURE;
         goto destroy_exit;
+    }
+
+    printf("Subscribing to topic %s\nfor client %s using QoS%d\n\n"
+           "Press Q<Enter> to quit\n\n", TOPIC1, CLIENTID, QOS);
+    if ((rc = MQTTClient_subscribe(client, TOPIC1, QOS)) != MQTTCLIENT_SUCCESS)
+    {
+    	printf("Failed to subscribe, return code %d\n", rc);
+    	rc = EXIT_FAILURE;
     }
 
     printf("Subscribing to topic %s\nfor client %s using QoS%d\n\n"

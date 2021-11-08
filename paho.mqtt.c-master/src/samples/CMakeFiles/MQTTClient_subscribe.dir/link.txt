@@ -1,0 +1,1 @@
+/usr/bin/cc   -rdynamic CMakeFiles/MQTTClient_subscribe.dir/MQTTClient_subscribe.o  -o MQTTClient_subscribe  -lpaho-mqtt3c 
