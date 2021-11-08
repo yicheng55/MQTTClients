@@ -8,11 +8,19 @@
 
 #define ADDRESS     "tcp://localhost:1883" //更改此处地址
 #define CLIENTID    "ExampleClientSub"     //更改此处客户端ID
-#define TOPIC1      "motion/test"                 //更改发送的话题
-#define TOPIC       "gtwang/test"                 //更改发送的话题
+//#define TOPIC1      "motion/test"                 //更改发送的话题
+//#define TOPIC       "gtwang/test"                 //更改发送的话题
 #define PAYLOAD     "Hello, GetIoT.tech!"  //更改信息内容
 #define QOS         1
 #define TIMEOUT     10000L
+#define NUM_STRINGS 5
+
+
+char *topicArray[NUM_STRINGS] = { "motion/test",
+                         "gtwang/test",
+                         "M2MQTT_Unity/test",
+                         "fourth/string",
+                         "fifth/string" };
 
 volatile MQTTClient_deliveryToken deliveredtoken;
 
@@ -40,6 +48,7 @@ void connlost(void *context, char *cause)
 
 int main(int argc, char* argv[])
 {
+    int i;
     MQTTClient client;
     MQTTClient_connectOptions conn_opts = MQTTClient_connectOptions_initializer;
     int rc;
@@ -61,6 +70,7 @@ int main(int argc, char* argv[])
 
     conn_opts.keepAliveInterval = 20;
     conn_opts.cleansession = 1;
+
     if ((rc = MQTTClient_connect(client, &conn_opts)) != MQTTCLIENT_SUCCESS)
     {
         printf("Failed to connect, return code %d\n", rc);
@@ -68,14 +78,33 @@ int main(int argc, char* argv[])
         goto destroy_exit;
     }
 
+/*
     printf("Subscribing to topic %s\nfor client %s using QoS%d\n\n"
            "Press Q<Enter> to quit\n\n", TOPIC1, CLIENTID, QOS);
     if ((rc = MQTTClient_subscribe(client, TOPIC1, QOS)) != MQTTCLIENT_SUCCESS)
     {
     	printf("Failed to subscribe, return code %d\n", rc);
     	rc = EXIT_FAILURE;
+
+    }
+*/
+
+
+    for (int i = 0; i < NUM_STRINGS; i++) {
+        printf("%s\n", topicArray[i]);
+
+        printf("Subscribing to topic %s\nfor client %s using QoS%d\n\n"
+           "Press Q<Enter> to quit\n\n", topicArray[i], CLIENTID, QOS);
+        if ((rc = MQTTClient_subscribe(client, topicArray[i], QOS)) != MQTTCLIENT_SUCCESS)
+        {
+    	    printf("Failed to subscribe, return code %d\n", rc);
+    	    rc = EXIT_FAILURE;
+            goto destroy_exit;
+        }
+
     }
 
+/*
     printf("Subscribing to topic %s\nfor client %s using QoS%d\n\n"
            "Press Q<Enter> to quit\n\n", TOPIC, CLIENTID, QOS);
     if ((rc = MQTTClient_subscribe(client, TOPIC, QOS)) != MQTTCLIENT_SUCCESS)
@@ -84,6 +113,8 @@ int main(int argc, char* argv[])
     	rc = EXIT_FAILURE;
     }
     else
+*/
+
     {
     	int ch;
     	do
@@ -91,10 +122,13 @@ int main(int argc, char* argv[])
         	ch = getchar();
     	} while (ch!='Q' && ch != 'q');
 
-        if ((rc = MQTTClient_unsubscribe(client, TOPIC)) != MQTTCLIENT_SUCCESS)
-        {
-        	printf("Failed to unsubscribe, return code %d\n", rc);
-        	rc = EXIT_FAILURE;
+        for (int i = 0; i < NUM_STRINGS; i++) {
+            if ((rc = MQTTClient_unsubscribe(client, topicArray[i])) != MQTTCLIENT_SUCCESS)
+            {
+        	    printf("Failed to unsubscribe, return code %d\n", rc);
+        	    rc = EXIT_FAILURE;
+            }
+
         }
     }
 
